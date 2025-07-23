@@ -3,13 +3,14 @@ body {
   padding: 24px;
   background-color: #f7f7f7;
   color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .form {
   display: flex;
   justify-content: center;
+  gap: 10px;
   margin-bottom: 24px;
-  gap: 8px;
 }
 
 .form input[type='text'] {
@@ -29,10 +30,10 @@ body {
 .form button {
   padding: 10px 20px;
   background-color: #3f51b5;
-  color: white;
+  color: #fff;
   border: none;
-  font-size: 16px;
   border-radius: 8px;
+  font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
 }
@@ -42,36 +43,16 @@ body {
 }
 
 .gallery {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 24px;
-  padding: 0;
-  margin: 0 auto;
   max-width: 1200px;
-  list-style: none;
-}
-.loader {
-  display: none;
-  width: 48px;
-  height: 48px;
-  margin: 40px auto;
-  border: 5px solid #ccc;
-  border-top-color: #3f51b5;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
 }
 
-.loader.visible {
-  display: block;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.gallery-item {
+.gallery li {
   background-color: #fff;
   border-radius: 10px;
   overflow: hidden;
@@ -79,8 +60,14 @@ body {
   transition: transform 0.3s;
 }
 
-.gallery-item:hover {
+.gallery li:hover {
   transform: scale(1.02);
+}
+
+.gallery-item {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 .gallery-item img {
@@ -88,11 +75,13 @@ body {
   height: 200px;
   object-fit: cover;
   display: block;
+  border-bottom: 1px solid #eee;
 }
 
 .info {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   padding: 12px;
   background-color: #fafafa;
   border-top: 1px solid #eee;
@@ -100,15 +89,52 @@ body {
   color: #666;
 }
 
-.loader {
+.info div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.info span {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.load-more {
+  display: block;
+  margin: 32px auto 16px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3f51b5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.load-more:hover {
+  background-color: #303f9f;
+}
+
+.load-more.hidden {
   display: none;
+}
+
+.loader {
+  display: block;
   width: 48px;
   height: 48px;
-  margin: 40px auto;
+  margin: 24px auto;
   border: 5px solid #ccc;
   border-top-color: #3f51b5;
   border-radius: 50%;
   animation: spin 1s linear infinite;
+}
+
+.loader.hidden {
+  display: none;
 }
 
 .loader.visible {
@@ -119,4 +145,15 @@ body {
   to {
     transform: rotate(360deg);
   }
+}
+
+.counter-text {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-top: 8px;
+}
+
+.counter-text.hidden {
+  display: none;
 }
